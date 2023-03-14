@@ -1,5 +1,5 @@
 <template>
-  <div>deneme</div>
+  <div></div>
 </template>
 
 <script setup></script>

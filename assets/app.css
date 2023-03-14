@@ -1,4 +1,36 @@
+::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 20;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 .center {
   justify-content: center;
   display: grid;
+}
+.left {
+  justify-content: start;
+  display: grid;
+}
+.right {
+  justify-content: end;
+  display: grid;
+}
+.view {
+  margin: auto;
+  max-width: 650px;
+}
+.navbar {
+  justify-content: space-between;
+  display: flex;
 }

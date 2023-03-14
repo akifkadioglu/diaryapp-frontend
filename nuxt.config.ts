@@ -1,5 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+    pageTransition: { name: "fade-transition", mode: "out-in" },
+  },
   css: [
     "assets/app.css",
     "vuetify/lib/styles/main.sass",

@@ -1,10 +1,8 @@
 <template>
   <div>
-    <NuxtLayout>
-        naber
-    </NuxtLayout>
-    <NuxtLink to="/about">sdf</NuxtLink>
-    </div>
+    <NuxtLayout> naber </NuxtLayout>
+    <NuxtLink to="/login">sdf</NuxtLink>
+  </div>
 </template>
 
 <script setup></script>
