@@ -1,13 +1,14 @@
 <template>
   <v-btn
-    rounded="pill"
+    rounded="0"
     class="text-subtitle-1"
     :prepend-icon="icon"
     variant="tonal"
     :color="color"
     @click="click"
     :width="width"
-    to="/"
+    :to="to"
+    :height="height"
   >
     {{ text }}
   </v-btn>
@@ -33,6 +34,14 @@ export default {
     width: {
       type: String,
       default: "100%",
+    },
+    height: {
+      type: String,
+      default: "40px",
+    },
+    to: {
+      type: String,
+      default: "",
     },
   },
 };
