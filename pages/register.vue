@@ -11,6 +11,7 @@
       <v-card-text>
         <div>
           <AppTextField placeholder="E-mail" textkey="email" />
+          <AppTextField placeholder="Name" textkey="name" />
           <AppTextField
             placeholder="Password"
             type="password"
@@ -21,17 +22,17 @@
       <v-card-actions class="navbar">
         <AppButton
           :click="submit"
-          text="Login"
-          icon="mdi-checkbox-marked-circle-outline "
+          text="Sign in"
+          icon="mdi-account-plus-outline"
           color="blue"
           width="70%"
         />
         <AppButton
-          text="Sign in"
-          icon="mdi-account-plus-outline"
+          text="Login"
           color="red"
+          icon="mdi-checkbox-marked-circle-outline "
           width="29%"
-          to="/register"
+          to="/login"
         />
       </v-card-actions>
       <div class="text-caption mr-5 right d-flex">
@@ -56,16 +57,21 @@ const { push } = useStorage();
 const router = useRouter();
 
 var email;
+var name;
 var password;
+var password_confirmation;
 
 $bus.$on("email", (data) => (email = data));
+$bus.$on("name", (data) => (name = data));
 $bus.$on("password", (data) => (password = data));
 
 async function submit() {
   await $api.api
-    .post("login", {
+    .post("register", {
       email: email,
+      name: name,
       password: password,
+      password_confirmation: password_confirmation,
     })
     .then(function (res) {
       push("token", res.data.token);

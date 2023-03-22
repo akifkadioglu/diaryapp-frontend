@@ -2,6 +2,7 @@
   <div>
     <slot />
     <AppFooter class="footer" />
+    <AppSnackbar/>
   </div>
 </template>
 
