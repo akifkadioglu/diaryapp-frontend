@@ -1,7 +1,6 @@
 <template>
   <v-app>
-    <v-container grid-list-xs>
-      <NuxtPage />
-    </v-container>
+    <NuxtPage />
+    <AppSnackbar />
   </v-app>
 </template>

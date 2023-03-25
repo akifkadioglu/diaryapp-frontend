@@ -1,14 +1,18 @@
 export const useStorage = () => {
 
-    const push = async (key, value) => {
-        localStorage.setItem(key, value)
+    const push = (key, value) => {
+        const cookie = useCookie(key)
+        cookie.value = value
     }
-    const pull = async (key) => {
-        localStorage.getItem(key, value)
 
+    const pull = (key) => {
+        const cookie = useCookie(key)
+        return cookie.value
     }
-    const remove = async () => {
-        localStorage.clear()
+    const remove = (key) => {
+        const cookie = useCookie(key)
+        cookie.value = undefined
     }
+
     return { push, pull, remove }
 }

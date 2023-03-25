@@ -16,9 +16,4 @@ export default defineNuxtConfig({
       API_BASE_URL: process.env.API_BASE_URL,
     },
   },
-  vite: {
-    define: {
-      "process.env.DEBUG": false,
-    },
-  },
 });

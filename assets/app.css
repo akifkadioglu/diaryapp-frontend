@@ -18,6 +18,11 @@
   justify-content: center;
   display: grid;
 }
+.center-vh {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
 .left {
   justify-content: start;
   display: grid;

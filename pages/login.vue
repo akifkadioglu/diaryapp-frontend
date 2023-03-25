@@ -1,6 +1,5 @@
 <template>
   <div class="login-page">
-    <AppSnackbar />
     <v-card class="login-card">
       <v-card-title primary-title>
         <div>
@@ -25,12 +24,14 @@
           icon="mdi-checkbox-marked-circle-outline "
           color="blue"
           width="70%"
+          overlayText="Are you ready to write something!"
         />
         <AppButton
           text="Sign in"
           icon="mdi-account-plus-outline"
           color="red"
           width="29%"
+          overlayText="Dont you have any account? Lets sign in!"
           to="/register"
         />
       </v-card-actions>
@@ -49,6 +50,9 @@
 </template>
 
 <script setup>
+definePageMeta({
+  middleware: "login-register-mw",
+});
 const { $bus } = useNuxtApp();
 const { $api } = useNuxtApp();
 const { showSnackbar } = useSnackbar();

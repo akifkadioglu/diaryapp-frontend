@@ -1,9 +1,12 @@
 import axios from "axios";
 export default defineNuxtPlugin((nuxtApp) => {
-    const config = useRuntimeConfig();
-    let api = axios.create({
+  const config = useRuntimeConfig();
+  const { pull } = useStorage();
+  var token = pull("token");
+  let api = axios.create({
     baseURL: config.API_BASE_URL,
     headers: {
+      Authorization: token,
       common: {},
     },
   });

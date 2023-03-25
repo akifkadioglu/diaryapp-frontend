@@ -1,7 +1,29 @@
 <template>
+  <v-tooltip v-if="overlayText" :location="location" origin="auto">
+    <template v-slot:activator="{ props }">
+      <v-btn
+        v-bind="props"
+        rounded="0"
+        class="text-subtitle-1 text-capitalize"
+        :prepend-icon="icon"
+        variant="tonal"
+        :color="color"
+        @click="click"
+        :width="width"
+        :to="to"
+        :height="height"
+        :loading="isLoading"
+      >
+        {{ text }}
+      </v-btn>
+    </template>
+
+    <div>{{ overlayText }}</div>
+  </v-tooltip>
   <v-btn
+    v-else
     rounded="0"
-    class="text-subtitle-1"
+    class="text-subtitle-1 text-capitalize"
     :prepend-icon="icon"
     variant="tonal"
     :color="color"
@@ -9,13 +31,35 @@
     :width="width"
     :to="to"
     :height="height"
+    :loading="isLoading"
   >
     {{ text }}
   </v-btn>
 </template>
 <script>
 export default {
+  computed: {
+    location() {
+      return `${this.locationSide} ${this.locationAlign}`;
+    },
+  },
   props: {
+    isLoading: {
+      type: Boolean,
+      default: false,
+    },
+    locationSide: {
+      type: String,
+      default: "bottom",
+    },
+    locationAlign: {
+      type: String,
+      default: "center",
+    },
+    overlayText: {
+      type: String,
+      default: "",
+    },
     text: {
       type: String,
       default: "",

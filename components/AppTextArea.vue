@@ -1,5 +1,5 @@
 <template>
-  <v-text-field
+  <v-textarea
     class="text-teal-darken-4"
     variant="outlined"
     density="comfortable"
@@ -13,6 +13,7 @@
 <script setup>
 const { $bus } = useNuxtApp();
 
+$bus.$on("remove", (data) => (value = data));
 function setString(key, value) {
   $bus.$emit(key, value);
 }

@@ -26,6 +26,7 @@
           icon="mdi-account-plus-outline"
           color="blue"
           width="70%"
+          overlayText="Are you ready to write something!"
         />
         <AppButton
           text="Login"
@@ -33,6 +34,7 @@
           icon="mdi-checkbox-marked-circle-outline "
           width="29%"
           to="/login"
+          overlayText="Do you have an account? Lets login!"
         />
       </v-card-actions>
       <div class="text-caption mr-5 right d-flex">
@@ -50,6 +52,9 @@
 </template>
 
 <script setup>
+definePageMeta({
+  middleware: "login-register-mw",
+});
 const { $bus } = useNuxtApp();
 const { $api } = useNuxtApp();
 const { showSnackbar } = useSnackbar();
