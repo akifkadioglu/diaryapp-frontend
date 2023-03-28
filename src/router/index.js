@@ -25,7 +25,7 @@ const routes = [
         component: Home
       },
       {
-        path: '/diary',
+        path: 'diary',
         name: routeNames.DIARY,
         component: Diary
       }
@@ -54,7 +54,11 @@ const routes = [
         component: Register
       }
     ]
-  }
+  },
+  {
+    path: '*',
+    redirect: '/',
+  },
 ]
 
 const router = new VueRouter({
