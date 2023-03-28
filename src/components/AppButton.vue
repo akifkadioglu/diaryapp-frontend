@@ -1,12 +1,12 @@
 <template>
-  <v-tooltip v-if="overlayText" :location="location" origin="auto">
-    <template v-slot:activator="{ props }">
+  <v-tooltip v-if="overlayText" bottom transition="scroll-y-transition">
+    <template v-slot:activator="{ on, attrs }">
       <v-btn
-        v-bind="props"
+        v-bind="attrs"
+        v-on="on"
         rounded
         depressed
         class="text-subtitle-1 text-capitalize"
-        text
         :color="color"
         @click="click(), to ? $router.push({ name: to }) : null"
         :width="width"
@@ -17,23 +17,15 @@
         {{ text }}
       </v-btn>
     </template>
-
-    <div>{{ overlayText }}</div>
+    <span>{{ overlayText }}</span>
   </v-tooltip>
   <v-btn
     v-else
     rounded
+    depressed
     class="text-subtitle-1 text-capitalize"
-    :prepend-icon="icon"
-    tonal
     :color="color"
-    @click="
-      () => {
-        console.log('sdfsd');
-        click;
-        $router.push({ name: to });
-      }
-    "
+    @click="click(), to ? $router.push({ name: to }) : null"
     :width="width"
     :height="height"
     :loading="isLoading"
@@ -43,11 +35,6 @@
 </template>
 <script>
 export default {
-  computed: {
-    location() {
-      return `${this.locationSide} ${this.locationAlign}`;
-    },
-  },
   props: {
     isLoading: {
       type: Boolean,

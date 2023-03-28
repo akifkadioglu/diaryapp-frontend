@@ -1,5 +1,5 @@
 <template>
-  <v-text-field
+  <v-textarea
     filled
     rounded
     :placeholder="placeholder"
@@ -7,9 +7,8 @@
     :type="type"
     v-model="value"
     :rules="rules"
-    dense
     counter
-    maxlength="255"
+    maxlength="2500"
     @input="
       (e) => {
         $emit('input', e);
@@ -20,12 +19,21 @@
 
 <script>
 export default {
+  watch: {
+    reload() {
+      this.value = "";
+    },
+  },
   props: {
     rules: {
       type: Array,
       default() {
         return [];
       },
+    },
+    reload: {
+      type: Boolean,
+      default: false,
     },
     label: {
       type: String,

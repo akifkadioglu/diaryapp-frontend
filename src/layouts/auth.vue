@@ -1,20 +1,27 @@
 <template>
-  <div class="auth-page">
-    <v-fab-transition>
-      <router-view />
-    </v-fab-transition>
+  <div>
+    <v-container class="page">
+      <v-scroll-x-transition mode="out-in">
+        <router-view />
+      </v-scroll-x-transition>
+    </v-container>
+    <AppFooter />
+    <AppSnackbar />
   </div>
 </template>
 
 <script>
-export default {};
+import AppFooter from "../components/AppFooter.vue";
+import AppSnackbar from "../components/AppSnackbar.vue";
+
+export default { components: { AppSnackbar, AppFooter } };
 </script>
 
 <style scoped>
-.auth-page {
+.page {
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 100vh;
   display: flex;
 }
 </style>
