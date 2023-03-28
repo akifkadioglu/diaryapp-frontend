@@ -55,7 +55,7 @@ export default {
     async all_diaries() {
       this.isLoading = true;
       await this.$axios
-        .get("all-diaries", this.form)
+        .get("diary/all", this.form)
         .then((result) => {
           this.diary = result.data.data;
           this.json = result.data;
@@ -73,7 +73,7 @@ export default {
       }
       this.isLoading = true;
       await this.$axios
-        .delete("delete-diary", {
+        .delete("diary/delete", {
           params: {
             id: id,
           },

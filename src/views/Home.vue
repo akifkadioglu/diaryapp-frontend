@@ -67,7 +67,7 @@ export default {
       this.isLoading = true;
       if (this.validate()) {
         await this.$axios
-          .post("create-diary", this.form)
+          .post("diary/create", this.form)
           .then(() => {
             this.$snackbar.show("We saved your day!");
             this.reset();

@@ -62,7 +62,7 @@ export default {
       this.isLoading = true;
       if (this.validate) {
         await this.$axios
-          .post("register", this.form)
+          .post("auth/register", this.form)
           .then((result) => {
             this.$axios.defaults.headers.common["Authorization"] =
               result.data.token;
